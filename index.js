@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const apiKey = process.env.API_KEY;
   const location = "Bath,UK";
-  const weatherInfoDiv = document.getElementsByClassName(
+  const weatherInfoDiv = document.getElementByClassName(
     "Sectionstyle__StyledSection-sc-1rnt8u1-0 emysck"
   );
 
