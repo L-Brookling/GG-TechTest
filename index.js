@@ -1,15 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const apiKey = process.env.API_KEY;
-  const location = "Bath,UK";
-  const weatherInfoDiv = document.getElementByClassName(
+  const weatherInfoDiv = document.getElementsByClassName(
     "Gridstyle__Container-sc-sque-2 dDmrLp nt-grid"
-  );
+  )[0]; // Added [0] since getElementsByClassName returns an array-like object
 
   async function fetchWeather() {
     try {
       const response = await fetch(
-        `https://europe-west1-amigo-actions.cloudfunctions.net/recruitment-mock-weather-
-endpoint/forecast?appid=a2ef86c41a&lat=27.987850&lon=86.925026`
+        `https://europe-west1-amigo-actions.cloudfunctions.net/recruitment-mock-weather-endpoint/forecast?appid=a2ef86c41a&lat=27.987850&lon=86.925026`
       );
       const data = await response.json();
 
