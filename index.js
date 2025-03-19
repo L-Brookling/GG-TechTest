@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const apiKey = process.env.API_KEY;
   const location = "Bath,UK";
   const weatherInfoDiv = document.getElementByClassName(
-    "Sectionstyle__StyledSection-sc-1rnt8u1-0 emysck"
+    "Gridstyle__Container-sc-sque-2 dDmrLp nt-grid"
   );
 
   async function fetchWeather() {
