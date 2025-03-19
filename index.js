@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const weatherInfoDiv = document.getElementsByClassName(
     "Gridstyle__Container-sc-sque-2 dDmrLp nt-grid"
-  )[0]; // Added [0] since getElementsByClassName returns an array-like object
+  )[0];
 
   // Check if element exists
   if (!weatherInfoDiv) {
@@ -21,29 +21,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const data = await response.json();
 
-      if (data.cod === 200) {
-        const temp = `${data.main.temp}°C`;
-        const desc = data.weather[0].description;
-        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-
+      if (data.cod === "42") {
+        // Updated to match actual response code
         // Clear existing content securely
         weatherInfoDiv.replaceChildren();
 
-        // Create elements securely
-        const weatherText = document.createElement("p");
-        weatherText.textContent = `Weather: ${
-          desc.charAt(0).toUpperCase() + desc.slice(1)
-        }`;
+        // Create and append location information
+        const locationInfo = document.createElement("div");
+        locationInfo.innerHTML = `
+          <h2>${data.city.name}, ${data.city.country}</h2>
+          <p>Population: ${data.city.population}</p>
+          <p>Coordinates: ${data.city.coord.lat}, ${data.city.coord.lon}</p>
+        `;
 
-        const tempText = document.createElement("p");
-        tempText.textContent = `Temperature: ${temp}`;
+        // Create and append current weather information
+        const currentWeather = data.list[0];
+        const weatherInfo = document.createElement("div");
+        weatherInfo.innerHTML = `
+          <h3>Current Weather</h3>
+          <p>Temperature: ${currentWeather.main.temp}°C</p>
+          <p>Feels Like: ${currentWeather.main.feels_like}°C</p>
+          <p>Weather: ${currentWeather.weather[0].description}</p>
+          <p>Humidity: ${currentWeather.main.humidity}%</p>
+          <p>Wind Speed: ${currentWeather.wind.speed} m/s</p>
+          <p>Pressure: ${currentWeather.main.pressure} hPa</p>
+          <p>Visibility: ${currentWeather.visibility} meters</p>
+        `;
 
         const weatherIcon = document.createElement("img");
-        weatherIcon.src = iconUrl;
-        weatherIcon.alt = desc;
+        weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`;
+        weatherIcon.alt = currentWeather.weather[0].description;
 
-        // Append elements securely
-        weatherInfoDiv.append(weatherText, tempText, weatherIcon);
+        // Append all elements
+        weatherInfoDiv.append(locationInfo, weatherInfo, weatherIcon);
       } else {
         throw new Error(`API error: ${data.message || "Unknown error"}`);
       }
