@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const weatherInfoDiv = document.getElementsByClassName(
-    "Gridstyle__Container-sc-sque-2 dDmrLp nt-grid"
+    "Gridstyle__Row-sc-sque-0 jXclPw nt-row"
   )[0];
 
-  // Check if element exists
+  // This will check to see if element exists
   if (!weatherInfoDiv) {
     console.error("Weather information container not found");
     return;
@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
 
       if (data.cod === "42") {
-        // Clear existing content securely
+        // This will clear existing content securely instead of using innerHTML
         weatherInfoDiv.replaceChildren();
 
-        // Create and append location information
+        // This will create and append location data
         const locationInfo = document.createElement("div");
 
         const cityTitle = document.createElement("h2");
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         locationInfo.append(cityTitle, population, coordinates);
 
-        // Create and append current weather information
+        // This will create and append current weather data
         const currentWeather = data.list[0];
         const weatherInfo = document.createElement("div");
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`;
         weatherIcon.alt = currentWeather.weather[0].description;
 
-        // Append all elements
+        // Append data to all elements
         weatherInfoDiv.append(locationInfo, weatherInfo, weatherIcon);
       } else {
         throw new Error(`API error: ${data.message || "Unknown error"}`);
