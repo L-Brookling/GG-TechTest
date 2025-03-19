@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Gridstyle__Row-sc-sque-0 jXclPw nt-row"
   )[0];
 
+  console.log("Weather div found:", weatherInfoDiv);
   // This will check to see if element exists
   if (!weatherInfoDiv) {
     console.error("Weather information container not found");
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function fetchWeather() {
     try {
+      console.log("Fetching weather data...");
       const response = await fetch(
         `https://europe-west1-amigo-actions.cloudfunctions.net/recruitment-mock-weather-endpoint/forecast?appid=a2ef86c41a&lat=27.987850&lon=86.925026`
       );
