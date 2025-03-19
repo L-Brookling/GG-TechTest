@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const apiKey = process.env.API_KEY;
   const location = "Bath,UK";
-  const weatherInfoDiv = document.getElementById("weather-info");
+  const weatherInfoDiv = document.getElementsByClassName(
+    "Sectionstyle__StyledSection-sc-1rnt8u1-0 emysck"
+  );
 
   async function fetchWeather() {
     try {
