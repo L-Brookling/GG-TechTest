@@ -22,31 +22,61 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
 
       if (data.cod === "42") {
-        // Updated to match actual response code
         // Clear existing content securely
         weatherInfoDiv.replaceChildren();
 
         // Create and append location information
         const locationInfo = document.createElement("div");
-        locationInfo.innerHTML = `
-          <h2>${data.city.name}, ${data.city.country}</h2>
-          <p>Population: ${data.city.population}</p>
-          <p>Coordinates: ${data.city.coord.lat}, ${data.city.coord.lon}</p>
-        `;
+
+        const cityTitle = document.createElement("h2");
+        cityTitle.textContent = `${data.city.name}, ${data.city.country}`;
+
+        const population = document.createElement("p");
+        population.textContent = `Population: ${data.city.population}`;
+
+        const coordinates = document.createElement("p");
+        coordinates.textContent = `Coordinates: ${data.city.coord.lat}, ${data.city.coord.lon}`;
+
+        locationInfo.append(cityTitle, population, coordinates);
 
         // Create and append current weather information
         const currentWeather = data.list[0];
         const weatherInfo = document.createElement("div");
-        weatherInfo.innerHTML = `
-          <h3>Current Weather</h3>
-          <p>Temperature: ${currentWeather.main.temp}°C</p>
-          <p>Feels Like: ${currentWeather.main.feels_like}°C</p>
-          <p>Weather: ${currentWeather.weather[0].description}</p>
-          <p>Humidity: ${currentWeather.main.humidity}%</p>
-          <p>Wind Speed: ${currentWeather.wind.speed} m/s</p>
-          <p>Pressure: ${currentWeather.main.pressure} hPa</p>
-          <p>Visibility: ${currentWeather.visibility} meters</p>
-        `;
+
+        const weatherTitle = document.createElement("h3");
+        weatherTitle.textContent = "Current Weather";
+
+        const temp = document.createElement("p");
+        temp.textContent = `Temperature: ${currentWeather.main.temp}°C`;
+
+        const feelsLike = document.createElement("p");
+        feelsLike.textContent = `Feels Like: ${currentWeather.main.feels_like}°C`;
+
+        const weather = document.createElement("p");
+        weather.textContent = `Weather: ${currentWeather.weather[0].description}`;
+
+        const humidity = document.createElement("p");
+        humidity.textContent = `Humidity: ${currentWeather.main.humidity}%`;
+
+        const windSpeed = document.createElement("p");
+        windSpeed.textContent = `Wind Speed: ${currentWeather.wind.speed} m/s`;
+
+        const pressure = document.createElement("p");
+        pressure.textContent = `Pressure: ${currentWeather.main.pressure} hPa`;
+
+        const visibility = document.createElement("p");
+        visibility.textContent = `Visibility: ${currentWeather.visibility} meters`;
+
+        weatherInfo.append(
+          weatherTitle,
+          temp,
+          feelsLike,
+          weather,
+          humidity,
+          windSpeed,
+          pressure,
+          visibility
+        );
 
         const weatherIcon = document.createElement("img");
         weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`;
