@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(function () {
   const weatherInfoDiv = document.getElementsByClassName(
     "Gridstyle__Row-sc-sque-0 jXclPw nt-row"
   )[0];
