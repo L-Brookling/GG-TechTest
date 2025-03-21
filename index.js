@@ -88,7 +88,12 @@
         weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`;
         weatherIcon.alt = currentWeather.weather[0].description;
 
-        weatherInfo.append(
+        // Create a container for weather text content
+        const weatherTextContent = document.createElement("div");
+        weatherTextContent.classList.add("weather-text-content");
+
+        // Add text content to this container
+        weatherTextContent.append(
           weatherTitle,
           temp,
           feelsLike,
@@ -96,9 +101,11 @@
           humidity,
           windSpeed,
           pressure,
-          visibility,
-          weatherIcon
+          visibility
         );
+
+        // Add both text content and icon to the weather info div
+        weatherInfo.append(weatherTextContent, weatherIcon);
 
         // Append data to all elements
         weatherInfoDiv.append(locationInfo, weatherInfo);

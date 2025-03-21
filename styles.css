@@ -1,8 +1,9 @@
 /* Styling for the weather information container */
 .weather-info {
   display: flex;
-  align-items: center;
-  gap: 10px; /* Adds space between the text and the image */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Adds space between the text and the image */
 }
 
 .weather-info,
@@ -14,6 +15,10 @@
   font-family: Arial, sans-serif;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+}
+
+.weather-text-content {
+  flex: 1;
 }
 
 /* Title styling */
@@ -49,7 +54,8 @@
 }
 
 .weather-info img {
-  width: 40px; /* Adjust size as needed */
-  height: 40px;
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  object-fit: contain;
   vertical-align: middle;
 }
