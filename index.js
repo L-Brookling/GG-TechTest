@@ -11,7 +11,7 @@
 
   function initWeather() {
     weatherInfoDiv = document.getElementsByClassName(
-      "Gridstyle__Column-sc-sque-1 bToVUj nt-col nt-col-m12 nt-col-t6"
+      "Sectionstyle__Content-sc-1rnt8u1-3 jvAto"
     )[0];
 
     console.log("Weather div found:", weatherInfoDiv);
@@ -57,6 +57,7 @@
         // This will create and append current weather data
         const currentWeather = data.list[0];
         const weatherInfo = document.createElement("div");
+        weatherInfo.classList.add("weather-info");
 
         const weatherTitle = document.createElement("h3");
         weatherTitle.textContent = "Current Weather";
