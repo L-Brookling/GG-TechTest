@@ -1,6 +1,6 @@
-document.addEventListener(function () {
+(function () {
   const weatherInfoDiv = document.getElementsByClassName(
-    "Gridstyle__Row-sc-sque-0 jXclPw nt-row"
+    "Gridstyle__Column-sc-sque-1 bToVUj nt-col nt-col-m12 nt-col-t6"
   )[0];
 
   console.log("Weather div found:", weatherInfoDiv);
@@ -24,8 +24,8 @@ document.addEventListener(function () {
       const data = await response.json();
 
       if (data.cod === "42") {
-        // This will clear existing content securely instead of using innerHTML
-        weatherInfoDiv.replaceChildren();
+        // // This will clear existing content securely instead of using innerHTML
+        // weatherInfoDiv.replaceChildren();
 
         // This will create and append location data
         const locationInfo = document.createElement("div");
@@ -96,4 +96,4 @@ document.addEventListener(function () {
   }
 
   fetchWeather();
-});
+})();
