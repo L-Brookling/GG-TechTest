@@ -44,7 +44,9 @@
       console.log("Fetching weather data...");
 
       // I have used the provided API key and coordinates to fetch the weather data
-      const response = await fetch(process.env.API_KEY);
+      const response = await fetch(
+        `https://europe-west1-amigo-actions.cloudfunctions.net/recruitment-mock-weather-endpoint/forecast?appid=a2ef86c41a&lat=27.987850&lon=86.925026`
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
