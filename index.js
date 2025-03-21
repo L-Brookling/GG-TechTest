@@ -1,13 +1,25 @@
 (function () {
-  const weatherInfoDiv = document.getElementsByClassName(
-    "Gridstyle__Column-sc-sque-1 bToVUj nt-col nt-col-m12 nt-col-t6"
-  )[0];
+  // Wait for DOM to be ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWeather);
+  } else {
+    initWeather();
+  }
 
-  console.log("Weather div found:", weatherInfoDiv);
-  // This will check to see if element exists
-  if (!weatherInfoDiv) {
-    console.error("Weather information container not found");
-    return;
+  function initWeather() {
+    const weatherInfoDiv = document.getElementsByClassName(
+      "Gridstyle__Column-sc-sque-1 bToVUj nt-col nt-col-m12 nt-col-t6"
+    )[0];
+
+    console.log("Weather div found:", weatherInfoDiv);
+    // This will check to see if the weatherInfoDiv exists
+    if (!weatherInfoDiv) {
+      console.error("Weather information container not found");
+      return;
+    }
+
+    // Call fetchWeather after we've confirmed DOM is ready
+    fetchWeather();
   }
 
   async function fetchWeather() {
@@ -94,6 +106,4 @@
       weatherInfoDiv.textContent = `Error fetching weather data: ${error.message}`;
     }
   }
-
-  fetchWeather();
 })();
