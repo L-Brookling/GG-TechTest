@@ -1,4 +1,7 @@
 (function () {
+  // Needs to be declared top level so that it is not out of scope
+  let weatherInfoDiv;
+
   // Wait for DOM to be ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initWeather);
@@ -7,11 +10,12 @@
   }
 
   function initWeather() {
-    const weatherInfoDiv = document.getElementsByClassName(
+    weatherInfoDiv = document.getElementsByClassName(
       "Gridstyle__Column-sc-sque-1 bToVUj nt-col nt-col-m12 nt-col-t6"
     )[0];
 
     console.log("Weather div found:", weatherInfoDiv);
+
     // This will check to see if the weatherInfoDiv exists
     if (!weatherInfoDiv) {
       console.error("Weather information container not found");
@@ -36,9 +40,6 @@
       const data = await response.json();
 
       if (data.cod === "42") {
-        // // This will clear existing content securely instead of using innerHTML
-        // weatherInfoDiv.replaceChildren();
-
         // This will create and append location data
         const locationInfo = document.createElement("div");
 
