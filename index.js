@@ -1,4 +1,17 @@
 (function () {
+  // Add CSS stylesheet function at the top level
+  function loadStyles() {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://l-brookling.github.io/GG-TechTest/styles.css";
+    link.onload = () => console.log("Stylesheet loaded successfully!");
+    link.onerror = (error) => console.error("Error loading stylesheet:", error);
+    document.head.appendChild(link);
+  }
+
+  // Load CSS before running JS
+  loadStyles();
+
   // Needs to be declared top level so that it is not out of scope
   let weatherInfoDiv;
 
