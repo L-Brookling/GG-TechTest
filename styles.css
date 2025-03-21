@@ -1,4 +1,10 @@
 /* Styling for the weather information container */
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds space between the text and the image */
+}
+
 .weather-info,
 .location-info {
   background-color: #f4f4f0; /* Light beige background */
@@ -42,8 +48,8 @@
   }
 }
 
-img {
+.weather-info img {
   width: 40px; /* Adjust size as needed */
   height: 40px;
-  align-self: middle;
+  vertical-align: middle;
 }
