@@ -42,6 +42,7 @@
       if (data.cod === "42") {
         // This will create and append location data
         const locationInfo = document.createElement("div");
+        locationInfo.classList.add("location-info");
 
         const cityTitle = document.createElement("h2");
         cityTitle.textContent = `${data.city.name}, ${data.city.country}`;

@@ -1,5 +1,6 @@
 /* Styling for the weather information container */
-.weather-info {
+.weather-info,
+.location-info {
   background-color: #f4f4f0; /* Light beige background */
   border-left: 5px solid #006400; /* Dark green accent */
   padding: 15px;
@@ -10,29 +11,39 @@
 }
 
 /* Title styling */
-.weather-info h3 {
+.weather-info h3,
+.location-info h2 {
   color: #006400;
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 /* Paragraph styling */
-.weather-info p {
+.weather-info p,
+.location-info p {
   font-size: 1rem;
   margin: 5px 0;
   color: #333;
 }
 
 /* Highlight temperature */
-.weather-info p:nth-child(2) {
+.weather-info p:nth-child,
+.location-info p:nth-child {
   font-weight: bold;
   font-size: 1.2rem;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .weather-info {
+  .weather-info,
+  .location-info {
     padding: 10px;
     font-size: 0.9rem;
   }
+}
+
+img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  vertical-align: middle;
 }
