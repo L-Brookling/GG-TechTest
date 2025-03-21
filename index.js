@@ -84,6 +84,10 @@
         const visibility = document.createElement("p");
         visibility.textContent = `Visibility: ${currentWeather.visibility} meters`;
 
+        const weatherIcon = document.createElement("img");
+        weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`;
+        weatherIcon.alt = currentWeather.weather[0].description;
+
         weatherInfo.append(
           weatherTitle,
           temp,
@@ -92,15 +96,12 @@
           humidity,
           windSpeed,
           pressure,
-          visibility
+          visibility,
+          weatherIcon
         );
 
-        const weatherIcon = document.createElement("img");
-        weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`;
-        weatherIcon.alt = currentWeather.weather[0].description;
-
         // Append data to all elements
-        weatherInfoDiv.append(locationInfo, weatherInfo, weatherIcon);
+        weatherInfoDiv.append(locationInfo, weatherInfo);
       } else {
         throw new Error(`API error: ${data.message || "Unknown error"}`);
       }

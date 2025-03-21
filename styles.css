@@ -45,5 +45,5 @@
 img {
   width: 40px; /* Adjust size as needed */
   height: 40px;
-  vertical-align: middle;
+  align-self: middle;
 }
