@@ -1,4 +1,3 @@
-/* Styling for the weather information container */
 .weather-info {
   display: flex;
   justify-content: space-between;
@@ -8,8 +7,8 @@
 
 .weather-info,
 .location-info {
-  background-color: #f4f4f0; /* Light beige background */
-  border-left: 5px solid #006400; /* Dark green accent */
+  background-color: #f4f4f0;
+  border-left: 5px solid #006400;
   padding: 15px;
   margin: 20px 0;
   font-family: Arial, sans-serif;
@@ -21,7 +20,6 @@
   flex: 1;
 }
 
-/* Title styling */
 .weather-info h3,
 .location-info h2 {
   color: #006400;
@@ -29,7 +27,6 @@
   margin-bottom: 10px;
 }
 
-/* Paragraph styling */
 .weather-info p,
 .location-info p {
   font-size: 1rem;
@@ -44,7 +41,7 @@
   font-size: 1.2rem;
 }
 
-/* Responsive design */
+/* Mobile considerations */
 @media (max-width: 768px) {
   .weather-info,
   .location-info {
@@ -54,7 +51,7 @@
 }
 
 .weather-info img {
-  width: 100px; /* Adjust size as needed */
+  width: 100px;
   height: 100px;
   align-self: center;
   translate: -100px;
